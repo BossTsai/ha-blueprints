@@ -22,11 +22,14 @@
 
 本資料夾採用「**一個藍圖 = 一個專案資料夾**」的結構：
 
-```text
-BossWei/
-├─ <project_name>/
-│  ├─ blueprint.yaml   # 藍圖主體（供 HA 匯入）
-│  └─ README.md        # 該藍圖的詳細說明
+ha-blueprints/
+└─ blueprints/
+   └─ automation/
+      └─ BossWei/
+         ├─ README.md        
+         └─ ac_power_on_set_temp/
+            ├─ blueprint.yaml
+            └─ README.md
 
 設計原則：
 	•	每個資料夾代表一個 獨立、完整的藍圖專案
