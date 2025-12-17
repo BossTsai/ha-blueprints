@@ -10,4 +10,4 @@ Home Assistant 自動化範例，主要作為：
 📌 範例列表：
 - 🎬 **Netflix 客廳情境**
   - TV 開機後自動切換至 Netflix
-  - 路徑：`examples/automations/BossWei/netflix_livingroom.yaml`
+  - 路徑：`examples/automations/BossWei/netflix_livingroom/netflix_livingroom.yaml`
