@@ -3,6 +3,8 @@
 本儲存庫提供由 **BossWei** 製作的 Home Assistant 自動化藍圖（Blueprints），
 可直接透過連結一鍵匯入使用。
 
+**版本：v1.0.1**  
+- 修正 Blueprint 在 HA 建立自動化時出現的 template 語法錯誤
 ---
 
 ## 🔧 冷氣通電後自動校正目標溫度（僅冷氣模式）
