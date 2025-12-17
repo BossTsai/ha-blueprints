@@ -1,0 +1,70 @@
+blueprint:
+  name: BossWei - 冷氣通電後自動校正目標溫度（僅冷氣模式）
+  description: >
+    冷氣電源由 off → on 時，若目前模式為冷氣（cool），
+    且設定溫度不是指定值，則自動調整為目標溫度。
+  domain: automation
+  author: BossWei
+  source_url: https://github.com/BossTsai/ha-blueprints
+
+  input:
+    ac_power_switch:
+      name: 冷氣電源開關
+      selector:
+        entity:
+          domain: switch
+
+    ac_climate:
+      name: 冷氣 Climate
+      selector:
+        entity:
+          domain: climate
+
+    target_temp:
+      name: 目標溫度
+      default: 27
+      selector:
+        number:
+          min: 16
+          max: 35
+          step: 1
+          mode: slider
+
+    sync_delay:
+      name: 通電後同步延遲（秒）
+      description: 避免冷氣剛開機時 climate 狀態尚未同步
+      default: 3
+      selector:
+        number:
+          min: 0
+          max: 30
+          step: 1
+          mode: slider
+
+mode: single
+
+trigger:
+  - platform: state
+    entity_id: !input ac_power_switch
+    from: "off"
+    to: "on"
+
+action:
+  - delay:
+      seconds: !input sync_delay
+
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ state_attr(!input ac_climate, 'hvac_mode') == 'cool' }}
+          - condition: template
+            value_template: >
+              {{ state_attr(!input ac_climate, 'temperature') | float(0)
+                 != (!input target_temp) | float }}
+        sequence:
+          - service: climate.set_temperature
+            target:
+              entity_id: !input ac_climate
+            data:
+              temperature: !input target_temp
