@@ -3,50 +3,14 @@
 本儲存庫提供由 **BossWei** 製作的 Home Assistant 自動化藍圖（Blueprints），
 可直接透過連結一鍵匯入使用。
 
-**版本：v1.0.1**  
-- 修正 Blueprint 在 HA 建立自動化時出現的 template 語法錯誤
 ---
 
 ## 🔧 冷氣通電後自動校正目標溫度（僅冷氣模式）
 
-### 功能說明
-當冷氣「電源開關」由 **off → on** 時：
-
-- 若目前模式為 **冷氣（cool）**
-- 且設定溫度 ≠ 指定目標溫度  
-➡️ 自動將溫度調整為目標值
-
-適合用於：
-- 防止家人每次開冷氣亂調溫度
-- 統一節能溫度設定
-- 多房間共用同一規則
-
----
-
 ### 📥 一鍵匯入連結
-https://raw.githubusercontent.com/BossTsai/ha-blueprints/main/blueprints/automation/BossWei/ac_power_on_set_temp.yaml
+https://raw.githubusercontent.com/BossTsai/ha-blueprints/main/blueprints/automation/BossWei/ac_power_on_set_temp/ac_power_on_set_temp.yaml
 
 Home Assistant → 設定 → 自動化與場景 → 藍圖 → 匯入藍圖
-
----
-
-### 🏠 使用範例
-
-#### 客廳冷氣
-- 電源開關：`switch.ke_ting_leng_qi_power_switch`
-- Climate：`climate.ke_ting_leng_qi_climate`
-- 目標溫度：`27°C`
-
-#### 主臥冷氣
-- 電源開關：`switch.climate_p_50f440_power_switch`
-- Climate：`climate.climate_p_50f440_climate`
-- 目標溫度：`26°C`
-
----
-
-### ⚙ 可調整參數
-- 目標溫度（16–35°C）
-- 通電後同步延遲秒數（避免剛開機狀態未更新）
 
 ---
 
