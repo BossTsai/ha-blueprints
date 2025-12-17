@@ -23,6 +23,7 @@
 
 ### 📥 一鍵匯入連結
 https://raw.githubusercontent.com/BossTsai/ha-blueprints/main/blueprints/automation/BossWei/ac_power_on_set_temp.yaml
+
 Home Assistant → 設定 → 自動化與場景 → 藍圖 → 匯入藍圖
 
 ---
